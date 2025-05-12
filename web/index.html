@@ -33,7 +33,7 @@
     <noscript>
       <p>JavaScript is required to load the Virtual Machine.</p>
     </noscript>
-    <div id="terminal"></div>
+    <div id="terminal"><p id="mrrp">please wait for the terminal to load.</p></div>
     <div class="awawa">
       <a href="https://estela.moe" target="_blank"
         ><img src="/8831/estela.png" alt="estela" /></a
@@ -88,6 +88,7 @@
         fontSize: 13,
       });
       term.open(document.getElementById("terminal"));
+      document.getElementById("mrrp").remove();
       term.write("Loading... Sit back and relax.\n");
       const { master, slave } = openpty();
 
