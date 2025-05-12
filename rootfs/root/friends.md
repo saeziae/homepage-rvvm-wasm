@@ -1,7 +1,7 @@
 ---
 title: "friends"
 ---
-<!-- no an up-to-date copy -->
+<!-- not an up-to-date copy -->
 - [astrid](https://itsastrid.me/)
 - [Ayaka](https://ayaka.shn.hk/)
 - [Beiyan Yunyi](https://stblog.penclub.club/)
