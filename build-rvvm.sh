@@ -1,4 +1,4 @@
-
+#/bin/bash
 hd=$(pwd)
 cd RVVM
 git apply ../RVVM.diff
@@ -21,8 +21,8 @@ LDFLAGS="\
   --preload-file $hd/build/buildroot/images/rootfs.ext2@rootfs.img"
 
 cd $hd
-if [ ! -d "build/rvvm" ]; then
-    mkdir -p build/rvvm
+if [ -d "build/rvvm" ]; then
+    rm -r build/rvvm
 fi
-
+mkdir -p build/rvvm
 cp RVVM/release.emscripten.wasm32/rvvm_wasm* build/rvvm/

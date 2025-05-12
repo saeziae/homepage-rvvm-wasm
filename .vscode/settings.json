@@ -25,5 +25,6 @@
     "unordered_map": "c",
     "unordered_set": "c",
     "vector": "c"
-  }
+  },
+  "cmake.sourceDirectory": "/home/estela/Develop/saeziae/rvvm-homepage/build/buildroot/build/host-meson-1.7.0/test cases/osx/2 library versions"
 }

@@ -1,3 +1,4 @@
+#/bin/bash
 if [ ! -d "build/buildroot" ]; then
   mkdir -p build/buildroot
 fi

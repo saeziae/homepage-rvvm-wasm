@@ -25,13 +25,12 @@
   --base: #1e1e2e;
   --mantle: #181825;
   --crust: #11111b;
-  --sans-serif-fallback: "Atkinson Hyperlegible Next", "Inter", "Helvetica Neue", Helvetica, "Noto Sans", "Liberation Sans", Cantarell, Roboto, Ubuntu, Arimo, Arial, sans-serif;
 }
 
 body {
   background-color: var(--mantle);
   color: var(--text);
-  font-family: var(--sans-serif-fallback);
+  font-family: 'CozetteVector', "Terminess Nerd Font", "Terminus", monospace;
 }
 
 div#terminal span {
@@ -66,7 +65,7 @@ a{
 }
 @font-face {
   font-family: 'CozetteVector', monospace;
-  src: url('CozetteVector.woff2') format('woff2');
+  src: url('/CozetteVector.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -74,7 +73,7 @@ a{
 
 @font-face {
   font-family: 'CozetteVector', monospace;
-  src: url('CozetteVectorBold.woff2') format('woff2');
+  src: url('/CozetteVectorBold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
   font-display: swap;

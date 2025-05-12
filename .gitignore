@@ -1,3 +1,8 @@
 web/node_modules/
 build/
 public/
+*.zip
+#used to compare changes
+*.new
+*.old
+.vscode/
