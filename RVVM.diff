@@ -14,7 +14,7 @@ index a2b15e5..465d24d 100644
  USE_SDL ?= 2
  USE_NET ?= 0
 diff --git a/src/devices/chardev_term.c b/src/devices/chardev_term.c
-index 767ffad..ab3f678 100644
+index 767ffad..ceb7607 100644
 --- a/src/devices/chardev_term.c
 +++ b/src/devices/chardev_term.c
 @@ -11,7 +11,7 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/.
@@ -22,7 +22,7 @@ index 767ffad..ab3f678 100644
  #include <stdio.h> // For fputs(), setvbuf()
  
 -#if (defined(__unix__) || defined(__APPLE__) || defined(__HAIKU__)) && !defined(__EMSCRIPTEN__)
-+#if (defined(__unix__) || defined(__APPLE__) || defined(__HAIKU__)) || defined(__EMSCRIPTEN__)
++#if (defined(__unix__) || defined(__APPLE__) || defined(__HAIKU__))
  #include <fcntl.h>    // For open()
  #include <sys/time.h> // For select()
  #include <termios.h>  // For tcgetattr(), tcsetattr(), etc
