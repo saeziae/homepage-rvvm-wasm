@@ -64,7 +64,7 @@ a{
   padding: 10px;
 }
 @font-face {
-  font-family: 'CozetteVector', monospace;
+  font-family: 'CozetteVector';
   src: url('/CozetteVector.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
@@ -72,7 +72,7 @@ a{
 }
 
 @font-face {
-  font-family: 'CozetteVector', monospace;
+  font-family: 'CozetteVector';
   src: url('/CozetteVectorBold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
