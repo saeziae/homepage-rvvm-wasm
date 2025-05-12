@@ -1,0 +1,38 @@
+name:
+  short_name: "estela"
+  first_name: "estela ad astra"
+  last_name: null
+aka: # id used
+  - "saeziae"
+  - "estel·la"
+homepage:
+  - "https://estela.moe"
+  - "https://estela.cat"
+languages:
+  - "wuu"
+  - "en"
+  - "ca"
+  - "es"
+  - "zh"
+  - "eo"
+generation: "z"
+gender: "non-binary"
+pronouns:
+  en:
+    - "they"
+    - "she"
+  ca:
+    - "elli"
+    - "ella"
+  es:
+    - "elle"
+    - "ella"
+  eo:
+    - "ri"
+reference:
+  pattern: "((this|that) (one|person|cat|being|meow))|you|they|she"
+  avoid:
+    - "masculine pronouns"
+    - "gendered nouns, including 'girl','woman'"
+    - "title"
+blåhaj_count: 3

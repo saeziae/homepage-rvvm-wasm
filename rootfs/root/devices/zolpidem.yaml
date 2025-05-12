@@ -1,0 +1,12 @@
+Hostname: zolpidem
+Description: this one's main PC
+OS: Arch Linux x86_64 
+Host: MSI Delta 15
+Shell: zsh (zimfw)
+Resolution: 2560x1440 
+DE: Plasma 6
+Terminal: kitty, alacritty
+Terminal Font: Atkinson Hyperlegible Mono
+CPU: AMD Ryzen 9 5900HX (16) @ 4.68GHz 
+GPU: AMD Radeon RX 6700M
+Memory: 32GB

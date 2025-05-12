@@ -1,0 +1,70 @@
+{
+  "camera": [
+    {
+      "brand": "minolta",
+      "name": "x700",
+      "lens": [
+        {
+          "brand": "minolta",
+          "mount": "md",
+          "aperture": 1.7,
+          "focal": 50
+        }
+      ]
+    },
+    {
+      "brand": "canon",
+      "name": "eos 100",
+      "lens": [
+        {
+          "brand": "canon",
+          "mount": "ef",
+          "aperture": 2.8,
+          "focal": [24, 70]
+        },
+        {
+          "brand": "sigma",
+          "mount": "ef",
+          "aperture": [4, 5.6],
+          "focal": [35, 80]
+        }
+      ]
+    },
+    {
+      "brand": "panasonic",
+      "name": "lumix gx9",
+      "lens": [
+        {
+          "brand": "panasonic",
+          "mount": "mft",
+          "aperture": 2.5,
+          "focal": 14
+        }
+      ]
+    },
+    {
+      "brand": "nikon",
+      "name": "fm2",
+      "lens": [
+        {
+          "brand": "nikon",
+          "mount": "f",
+          "aperture": 1.8,
+          "focal": 50
+        }
+      ]
+    }
+  ],
+  "filmroll": [
+    {
+      "brand": "kodak",
+      "name": "ektachrome 100d 5294",
+      "iso": 100,
+      "type": "color reversal"
+    },
+    {
+      "brand": "fomapan",
+      "type": "black and white"
+    }
+  ]
+}

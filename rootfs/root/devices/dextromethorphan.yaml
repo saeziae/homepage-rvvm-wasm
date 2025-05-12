@@ -1,0 +1,6 @@
+Hostname: dextromethorphan
+Host: ClockworkPi uConsole
+OS: Arch Linux ARM aarch64
+Kernel: Linux 6.1-estela-modified
+DE: hyprland, phosh
+CPU: Rockchip RK3399 (2+4)

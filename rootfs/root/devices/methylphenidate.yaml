@@ -1,0 +1,12 @@
+Hostname: methylphenidate
+Description: this one's Chromebook of hanging out
+OS: Void Linux x86_64
+Host: Markarth
+Shell: bsh (oh-my-bash)
+Resolution: 1920x1200
+DE: KDE Plasma 6 (wayland)
+CPU: AMD Ryzen 3 7320c (8) @ 4.1GHz
+GPU: AMD Mendocino
+Memory: 8GB
+BIOS: coreboot
+Disk: 128GB NVMe
