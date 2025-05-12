@@ -1,0 +1,91 @@
+:root {
+  --rosewater: #f5e0dc;
+  --flamingo: #f2cdcd;
+  --pink: #f5c2e7;
+  --mauve: #cba6f7;
+  --red: #f38ba8;
+  --maroon: #eba0ac;
+  --peach: #fab387;
+  --yellow: #f9e2af;
+  --green: #a6e3a1;
+  --teal: #94e2d5;
+  --sky: #89dceb;
+  --sapphire: #74c7ec;
+  --blue: #89b4fa;
+  --lavender: #b4befe;
+  --text: #cdd6f4;
+  --subtext1: #bac2de;
+  --subtext0: #a6adc8;
+  --overlay2: #9399b2;
+  --overlay1: #7f849c;
+  --overlay0: #6c7086;
+  --surface2: #585b70;
+  --surface1: #45475a;
+  --surface0: #313244;
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+  --sans-serif-fallback: "Atkinson Hyperlegible Next", "Inter", "Helvetica Neue", Helvetica, "Noto Sans", "Liberation Sans", Cantarell, Roboto, Ubuntu, Arimo, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--mantle);
+  color: var(--text);
+  font-family: var(--sans-serif-fallback);
+}
+
+div#terminal span {
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+}
+
+a{
+  color: var(--pink);
+  text-decoration: none;
+}
+
+.icon {
+  height: 2em;
+  vertical-align: middle;
+  text-decoration: unset;
+}
+
+.awawa {
+  line-height: 0;
+}
+
+.awawa img{
+  padding: 0;
+  margin: 0;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.meow{
+  padding: 10px;
+}
+@font-face {
+  font-family: 'CozetteVector', monospace;
+  src: url('CozetteVector.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CozetteVector', monospace;
+  src: url('CozetteVectorBold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*scale to 2x when screen bigger than 960x800 */
+@media (min-width: 960px) and (min-height: 800px) {
+  body {
+    transform: scale(2);
+    transform-origin: 0 0;
+    overflow: hidden;
+    width: 50%;
+  }
+}

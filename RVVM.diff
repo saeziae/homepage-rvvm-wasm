@@ -1,0 +1,28 @@
+diff --git a/Makefile b/Makefile
+index a2b15e5..465d24d 100644
+--- a/Makefile
++++ b/Makefile
+@@ -188,8 +188,8 @@ else
+ # Emscripten-specific build options
+ ifeq ($(OS),emscripten)
+ override CFLAGS += -pthread
+-override LDFLAGS += -s TOTAL_MEMORY=512MB
+-override BIN_EXT := .html
++override LDFLAGS += -s TOTAL_MEMORY=128MB
++override BIN_EXT := .mjs
+ override LIB_EXT := .so
+ USE_SDL ?= 2
+ USE_NET ?= 0
+diff --git a/src/devices/chardev_term.c b/src/devices/chardev_term.c
+index 767ffad..ab3f678 100644
+--- a/src/devices/chardev_term.c
++++ b/src/devices/chardev_term.c
+@@ -11,7 +11,7 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ #include "chardev.h"
+ #include <stdio.h> // For fputs(), setvbuf()
+ 
+-#if (defined(__unix__) || defined(__APPLE__) || defined(__HAIKU__)) && !defined(__EMSCRIPTEN__)
++#if (defined(__unix__) || defined(__APPLE__) || defined(__HAIKU__)) || defined(__EMSCRIPTEN__)
+ #include <fcntl.h>    // For open()
+ #include <sys/time.h> // For select()
+ #include <termios.h>  // For tcgetattr(), tcsetattr(), etc

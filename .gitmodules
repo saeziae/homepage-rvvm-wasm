@@ -1,0 +1,6 @@
+[submodule "buildroot"]
+	path = buildroot
+	url = https://github.com/buildroot/buildroot.git
+[submodule "RVVM"]
+	path = RVVM
+	url = https://github.com/LekKit/RVVM.git

@@ -1,0 +1,3 @@
+#!/bin/sh
+[ -r /etc/hostname ] && read -r HOSTNAME < /etc/hostname
+[ -n "$HOSTNAME" ] && printf "%s" "$HOSTNAME" > /proc/sys/kernel/hostname

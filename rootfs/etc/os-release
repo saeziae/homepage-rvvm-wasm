@@ -1,0 +1,4 @@
+NAME=Xenia
+ID=xenia
+PRETTY_NAME="Xenia (Buildroot)"
+HOME_URL="https://estela.moe/"
