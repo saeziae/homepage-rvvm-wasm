@@ -28,7 +28,7 @@
 }
 
 body {
-  min-width: 560px;
+  min-width: 480px;
   background-color: var(--mantle);
   color: var(--text);
   font-family: 'CozetteVector', "Terminess Nerd Font", "Terminus", monospace;
@@ -65,8 +65,12 @@ a{
 .meow{
   display: flex;
   justify-content:space-between;
-  padding: 10px;
 }
+
+.meow p{
+  margin: 0;
+}
+
 @font-face {
   font-family: 'CozetteVector';
   src: url('./CozetteVector.woff2') format('woff2');
