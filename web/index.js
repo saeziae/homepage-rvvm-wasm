@@ -12,6 +12,7 @@ var term = new Terminal({
   fontFamily:
     'CozetteVector, "Terminess Nerd Font", "Terminus", monospace',
   fontSize: 13,
+  scrollback: 0
 });
 term.open(document.getElementById("terminal"));
 document.getElementById("mrrp").remove();

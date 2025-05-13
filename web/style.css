@@ -41,6 +41,10 @@ body {
   border: var(--mauve) solid 1px;
 }
 
+.xterm .xterm-viewport {
+  overflow-y: hidden;
+}
+
 .xterm-rows {
   font-smooth: never;
   -webkit-font-smoothing: none;
