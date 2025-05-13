@@ -1,0 +1,18 @@
+#!/bin/bash
+cat << EEP
+__      _____ _    ___ 
+\ \    / / __| |  | _ \\
+ \ \/\/ /| _|| |__|  _/
+  \_/\_/ |___|____|_|  
+little kitten relax, here are some commands to get started
+  ls               peek inside the current directory
+  ls -l            peek inside the current directory, in a list
+  cd [dir]         woosh into the directory
+  cd ..            woosh back to the parent directory
+  cat [file]       print file content, nice for smol files, good cat!
+  less [file]      view a long file (longer than the screen!) less is more
+  neofetch         show off the system info
+pat the TAB key to auto-complete commands and file names
+to learn more, try https://tldr.inbrowser.app/
+happy hacking :3
+EEP
