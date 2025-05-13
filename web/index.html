@@ -33,7 +33,9 @@
     <noscript>
       <p>JavaScript is required to load the Virtual Machine.</p>
     </noscript>
-    <div id="terminal"><p id="mrrp">please wait for the terminal to load.</p></div>
+    <div id="terminal">
+      <p id="mrrp">please wait for the terminal to load.</p>
+    </div>
     <div class="awawa">
       <a href="https://estela.moe" target="_blank"
         ><img src="/8831/estela.png" alt="estela" /></a
@@ -84,12 +86,18 @@
         convertEol: true,
         cursorBlink: true,
         theme: theme,
-        fontFamily: 'CozetteVector, "Terminess Nerd Font", "Terminus", monospace',
+        fontFamily:
+          'CozetteVector, "Terminess Nerd Font", "Terminus", monospace',
         fontSize: 13,
       });
       term.open(document.getElementById("terminal"));
       document.getElementById("mrrp").remove();
-      term.write("Loading... Sit back and relax.\n");
+      if (navigator.language.startsWith("zh")) {
+        term.write("请坐和放宽，好东西就要来了。\n");
+      } else {
+        term.write("Loading... Sit back and relax.\n");
+      }
+
       const { master, slave } = openpty();
 
       term.loadAddon(master);
