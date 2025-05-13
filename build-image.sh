@@ -1,4 +1,6 @@
 #/bin/bash
+git rev-parse --short HEAD > rootfs/root/.version
+date -d @$(git log -1 --format=%ct) --iso-8601=m >> rootfs/root/.version
 if [ ! -d "build/buildroot" ]; then
   mkdir -p build/buildroot
 fi
