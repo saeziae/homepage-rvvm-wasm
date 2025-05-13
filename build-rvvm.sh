@@ -14,7 +14,7 @@ USE_SDL=0 \
 USE_X11=0 \
 USE_FB=0 \
 LDFLAGS="\
-  -sFORCE_FILESYSTEM -sASYNCIFY \
+  -sFORCE_FILESYSTEM -sPROXY_TO_PTHREAD\
   --js-library=$hd/web/node_modules/xterm-pty/emscripten-pty.js \
   --preload-file $hd/build/buildroot/images/fw_jump.bin@fw_jump.bin \
   --preload-file $hd/build/buildroot/images/Image@Image \
