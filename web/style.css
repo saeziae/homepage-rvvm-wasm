@@ -28,11 +28,17 @@
 }
 
 body {
-  min-width: 480px;
+  min-width: 490px;
+  margin: 4px;
   background-color: var(--mantle);
   color: var(--text);
   font-family: 'CozetteVector', "Terminess Nerd Font", "Terminus", monospace;
   font-size: 13px;
+}
+
+.xterm {
+  width: fit-content;
+  border: var(--mauve) solid 1px;
 }
 
 .xterm-rows {
@@ -45,13 +51,8 @@ a{
   text-decoration: none;
 }
 
-.icon {
-  height: 2em;
-  vertical-align: middle;
-  text-decoration: unset;
-}
-
 .awawa {
+  padding: 5px 0;
   line-height: 0;
 }
 
@@ -63,6 +64,7 @@ a{
 }
 
 .meow{
+  width: 352px;
   display: flex;
   justify-content:space-between;
 }
