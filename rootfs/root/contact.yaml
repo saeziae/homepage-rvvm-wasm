@@ -4,9 +4,9 @@ email:
 shitgitting:
   - "https://github.com/saeziae"
   - "https://git.gay/saeziae"
-shitposting:
+shitposting: # fedi
   - "@sz@catcatnya.com"
-  - "@mzk:nightcord.de"
-p2p_infodumping:
+  - "@mzk@nightcord.de"
+p2p_infodumping: # matrix
   - "@mzk:nightcord.de"
   - "@saeziae:mozilla.org"
