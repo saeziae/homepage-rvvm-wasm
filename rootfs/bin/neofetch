@@ -70,9 +70,40 @@ print_info() {
     info "Host" model
     info "Kernel" kernel
     info "Uptime" uptime
+    info "Packages" packages
     info "Shell" shell
+    info "Editor" editor
+    info "Resolution" resolution
+    info "DE" de
+    info "WM" wm
+    info "WM Theme" wm_theme
+    info "Theme" theme
+    info "Icons" icons
+    info "Cursor" cursor
+    info "Terminal" term
+    info "Terminal Font" term_font
     info "CPU" cpu
+    info "GPU" gpu
     info "Memory" memory
+    info "Network" network
+    info "Bluetooth" bluetooth
+    info "BIOS" bios
+
+    # info "GPU Driver" gpu_driver  # Linux/macOS only
+    # info "Disk" disk
+    # info "Battery" battery
+    # info "Power Adapter" power_adapter # macOS only
+    # info "Font" font
+    # info "Song" song
+    # [[ "$player" ]] && prin "Music Player" "$player"
+    # info "Local IP" local_ip
+    # info "Public IP" public_ip
+    # info "Users" users
+    # info "Locale" locale  # This only works on glibc systems.
+
+    # info "Java" java_ver
+    # info "Python" python_ver
+    # info "Node" node_ver
 
     info cols
 }
@@ -846,9 +877,9 @@ image_source="auto"
 # DracOS, DragonFly, Drauger, Droidian, Elementary, Elive, EncryptOS, EndeavourOS, Endless, Enso,
 # EuroLinux, EvolutionOS, eweOS, Exherbo, Exodia Predator OS, Fedora, Fedora Kinoite, Fedora
 # Sericea, Fedora Silverblue, Fedora_unicode, FemboyOS, Feren, Finnix, Floflis, FreeBSD, FreeMiNT,
-# Frugalware, Funtoo, Furreto, GalliumOS, Garuda, Gentoo, GhostBSD, glaucus, Gloire, gNewSense, GNOME,
-# GNU, GoboLinux, GrapheneOS, Grombyang, Guix, Haiku, HamoniKR, HarDClanZ, Hash, Huayra, Hybrid,
-# HydroOS, Hyperbola, iglunix, instantOS, Interix, IRIX, Itc, januslinux, Kaisen, Kali, KaOS, KDE,
+# Frugalware, Funtoo, Furreto, GalliumOS, Garuda, Gentoo, GhostBSD, glaucus, gNewSense, GNOME, GNU,
+# GoboLinux, GrapheneOS, Grombyang, Guix, Haiku, HamoniKR, HarDClanZ, Hash, Huayra, Hybrid, HydroOS,
+# Hyperbola, iglunix, instantOS, Interix, IRIX, Ironclad, Itc, januslinux, Kaisen, Kali, KaOS, KDE,
 # Kibojoe, Kogaion, Korora, KrassOS, KSLinux, Kubuntu, LainOS, LangitKetujuh, LaxerOS, LEDE,
 # LibreELEC, Linspire, Linux, Linux Lite, Linux Mint, Linux Mint Old, LinuxFromScratch, Live Raizo,
 # LMDE, Lubuntu, Lunar, mac, MacaroniOS, Mageia, Magix, MagpieOS, MainsailOS, Mandriva, Manjaro,
@@ -1039,7 +1070,8 @@ get_distro() {
     [[ $distro ]] && return
 
     case $os in
-        Linux|BSD|MINIX|Ironclad)
+     Ironclad) distro=Ironclad ;;
+        Linux|BSD|MINIX)
             if [[ -f /bedrock/etc/bedrock-release && -z $BEDROCK_RESTRICT ]]; then
                 case $distro_shorthand in
                     on|tiny) distro="Bedrock Linux" ;;
@@ -1167,15 +1199,7 @@ get_distro() {
             elif type -p lsb_release >/dev/null; then
                 # Debian does not include .x versions in /etc/os-version, but does in debian_version
                 # So if that file exists, and we are not *buntu, build name from there
-                if [[ $(lsb_release -si) = *"KSLinux"* ]]
-                then
-                    . /etc/os-release
-                    case $distro_shorthand in
-                        on)   distro=${NAME} ;;
-                        tiny) distro=${NAME} ;;
-                        *)    distro="${NAME} ${VERSION}" ;;
-                    esac
-                elif [[ -f /etc/debian_version ]] && [[ $(lsb_release -si) != *"buntu"* ]] && [[ $(lsb_release -si) != *"neon"* ]]; then
+                if [[ -f /etc/debian_version ]] && [[ $(lsb_release -si) != *"buntu"* ]] && [[ $(lsb_release -si) != *"neon"* ]]; then
                     . /etc/os-release
                     case $distro_shorthand in
                         on)   distro="${NAME}" ;;
@@ -1233,6 +1257,10 @@ get_distro() {
 
             elif type -p tazpkg >/dev/null; then
                 distro="SliTaz $(< /etc/slitaz-release)"
+
+            elif type -p kpt >/dev/null && \
+                 type -p kpm >/dev/null; then
+                distro=KSLinux
 
             elif [[ -d /system/app/ && -d /system/priv-app ]]; then
                 distro="Android $(getprop ro.build.version.release)"
@@ -1929,6 +1957,9 @@ get_kernel() {
 get_uptime() {
     # Get uptime in seconds.
     case $os in
+        Ironclad)
+            s=$(uptime -s)
+        ;;
         Linux|Windows|MINIX)
             if [[ -r /proc/uptime ]]; then
                 s=$(< /proc/uptime)
@@ -1957,7 +1988,7 @@ get_uptime() {
             s=$((now - boot))
         ;;
 
-        AIX|IRIX|Ironclad)
+        AIX|IRIX)
             t=$(LC_ALL=POSIX ps -o etime= -p 1)
 
             [[ $t == *-*   ]] && { d=${t%%-*}; t=${t#*-}; }
@@ -2152,7 +2183,7 @@ get_packages() {
             has evox       && tot cat /var/evox/packages/DB
             has squirrel   && tot ls -w 1 /var/packages
             has anise      && tot anise s --installed
-            has am         && pac "$(am -f --less | awk '{ SUM += $1} END { print SUM }')"
+            has am         && pac "$(am -f --less)"
             # Bonsai refers to the now archived repo https://github.com/mitchweaver/bonsai
             has bonsai     && tot bonsai list
             # Rad refers to https://github.com/glaucuslinux/rad
@@ -2168,7 +2199,7 @@ get_packages() {
             if has dnf && type -p sqlite3 >/dev/null && [[ -f /var/cache/dnf/packages.db ]]; then
                 pac "$(sqlite3 /var/cache/dnf/packages.db "SELECT count(pkg) FROM installed")"
             else
-                has rpm && tot rpm -qa --nodigest --nosignature
+                has rpm && tot rpm -qa
             fi
 
             # 'mine' conflicts with minesweeper games.
@@ -2210,6 +2241,7 @@ get_packages() {
             fi
 
             # Other (Needs complex command)
+            has kpm-pkg && ((packages+=$(kpm  --get-selections | grep -cv deinstall$)))
 
             nix-user-pkgs() {
                 if [ -d ~/.nix-profile ]; then
@@ -2328,7 +2360,7 @@ get_packages() {
 
         AIX|FreeMiNT)
             has lslpp && ((packages+=$(lslpp -J -l -q | grep -cv '^#')))
-            has rpm   && tot rpm -qa --nodigest --nosignature
+            has rpm   && tot rpm -qa
         ;;
 
         Windows)
@@ -3143,10 +3175,19 @@ END
         ;;
 
         "Mac OS X"|"macOS")
-            cpu="$(sysctl -n machdep.cpu.brand_string 2>/dev/null)"
-            if [ -z "$cpu" ]; then
-                cpu="$(system_profiler SPHardwareDataType | grep Processor\ Name)"
-                cpu="${cpu/Processor\ Name\:/}"
+            if [[ $osx_version == 10.[4-5]* ]]; then
+                cpu="$(system_profiler SPHardwareDataType | grep CPU\ Type)"
+                cpu="${cpu/CPU\ Type\:/}"
+
+                speed="$(system_profiler SPHardwareDataType | grep CPU\ Speed)"
+                speed="${speed/CPU\ Speed\:/}"
+                speed="${speed/ MHz/}"
+                speed="${speed/ GHz/}"
+
+                cores="$(system_profiler SPHardwareDataType | grep Number\ Of\ CPUs)"
+                cores="${cores/Number\ Of\ CPUs\:/}"
+            else
+                cpu="$(sysctl -n machdep.cpu.brand_string)"
             fi
 
             # Get CPU cores.
@@ -3333,6 +3374,7 @@ END
     cpu="${cpu//[1-9][0-9]-Core}"
     cpu="${cpu//[0-9]-Core}"
     cpu="${cpu//, * Compute Cores}"
+    cpu="${cpu//Core / }"
     cpu="${cpu//(\"AuthenticAMD\"*)}"
     cpu="${cpu//with Radeon*Graphics}"
     cpu="${cpu//, altivec supported}"
@@ -3621,19 +3663,13 @@ get_memory() {
         ;;
 
         "Mac OS X" | "macOS" | "iPhone OS")
-            pageable="$(sysctl -n vm.page_pageable_internal_count)"
-            purgeable="$(sysctl -n vm.page_purgeable_count)"
-            if [ -n "$pageable" ] && [ -n "$purgeable" ] && type -p vm_stat &>/dev/null; then
-                hw_pagesize="$(sysctl -n hw.pagesize)"
-                mem_total="$(($(sysctl -n hw.memsize) / 1024))"
-                pages_app="$(($(sysctl -n vm.page_pageable_internal_count) - $(sysctl -n vm.page_purgeable_count)))"
-                pages_wired="$(vm_stat | awk '/ wired/ { print $4 }')"
-                pages_compressed="$(vm_stat | awk '/ occupied/ { printf $5 }')"
-                pages_compressed="${pages_compressed:-0}"
-                mem_used="$(((pages_app + ${pages_wired//.} + ${pages_compressed//.}) * hw_pagesize / 1024))"
-            else
-                return 0
-            fi
+            hw_pagesize="$(sysctl -n hw.pagesize)"
+            mem_total="$(($(sysctl -n hw.memsize) / 1024))"
+            pages_app="$(($(sysctl -n vm.page_pageable_internal_count) - $(sysctl -n vm.page_purgeable_count)))"
+            pages_wired="$(vm_stat | awk '/ wired/ { print $4 }')"
+            pages_compressed="$(vm_stat | awk '/ occupied/ { printf $5 }')"
+            pages_compressed="${pages_compressed:-0}"
+            mem_used="$(((pages_app + ${pages_wired//.} + ${pages_compressed//.}) * hw_pagesize / 1024))"
         ;;
 
         "BSD" | "MINIX" | "ravynOS")
@@ -4551,7 +4587,7 @@ get_python_ver() {
     if command -v python &> /dev/null; then
         python_ver=$(python -VVV)
         python_ver=${python_ver//$'\n'/}
-        python_ver=${python_ver//+([[:space:]])\(+([^\)])\)}
+        python_ver=${python_ver//\(+([^\)])\)}
         python_ver=$(echo "$python_ver" | awk '$1=$1')
     fi
 }
@@ -6598,9 +6634,9 @@ ASCII:
                                 Kinoite, Fedora Sericea, Fedora Silverblue, Fedora_unicode,
                                 FemboyOS, Feren, Finnix, Floflis, FreeBSD, FreeMiNT, Frugalware,
                                 Funtoo, Furreto, GalliumOS, Garuda, Gentoo, GhostBSD, glaucus,
-                                Gloire, gNewSense, GNOME, GNU, GoboLinux, GrapheneOS, Grombyang,
-                                Guix, Haiku, HamoniKR, HarDClanZ, Hash, Huayra, Hybrid, HydroOS,
-                                Hyperbola, iglunix, instantOS, Interix, IRIX, Itc,
+                                gNewSense, GNOME, GNU, GoboLinux, GrapheneOS, Grombyang, Guix,
+                                Haiku, HamoniKR, HarDClanZ, Hash, Huayra, Hybrid, HydroOS,
+                                Hyperbola, iglunix, instantOS, Interix, IRIX, Ironclad, Itc,
                                 januslinux, Kaisen, Kali, KaOS, KDE, Kibojoe, Kogaion, Korora,
                                 KrassOS, KSLinux, Kubuntu, LainOS, LangitKetujuh, LaxerOS, LEDE,
                                 LibreELEC, Linspire, Linux, Linux Lite, Linux Mint, Linux Mint Old,
@@ -10733,7 +10769,7 @@ ${c2}~!!7JY5PGGBBBBBBBBGGGGGGGBGGGGGP5YJ?7~~~
 EOF
         ;;
 
-         "Gloire"*)
+         "Ironclad"*)
              set_colors 5 7 0
              read -rd '' ascii_data <<'EOF'
 ${c3}
@@ -14401,24 +14437,22 @@ EOF
         "openSUSE Leap"* | "openSUSE_Leap"*)
             set_colors 2 7
             read -rd '' ascii_data <<'EOF'
-${c2}            ====
-           ======
-         ==== ====+
-       +====    +====
-     +===+        ====
-    ====            ====
-  +===               +====
-  ====               +====
-   =====            ====
-     +===+        =====
-  ==+  =====    +===+  ===
-  ====   ==== =====  =====
-    ====  =======   ====
-      ====  ===   ====
-       ====+    ====
-         ==== =====
-           ======
-             ==
+${c2}                 `-++:`
+               ./oooooo/-
+            `:oooooooooooo:.
+          -+oooooooooooooooo+-`
+       ./oooooooooooooooooooooo/-
+      :oooooooooooooooooooooooooo:
+    `  `-+oooooooooooooooooooo/-   `
+ `:oo/-   .:ooooooooooooooo+:`  `-+oo/.
+`/oooooo:.   -/oooooooooo/.   ./oooooo/.
+  `:+ooooo+-`  `:+oooo+-   `:oooooo+:`
+     .:oooooo/.   .::`   -+oooooo/.
+        -/oooooo:.    ./oooooo+-
+          `:+ooooo+-:+oooooo:`
+             ./oooooooooo/.
+                -/oooo+:`
+                  `:/.
 EOF
         ;;
 
@@ -14435,57 +14469,22 @@ TTTTTTTTTT
 EOF
         ;;
 
-        "openSUSE Tumbleweed-Slowroll"* | "openSUSE_Slowroll"*)
-            set_colors 2 7
-            read -rd '' ascii_data <<'EOF'
-${c2}              _aaaymQQmwaaa,
-          ,wWQQQD????????$QQQQa,.
-       _wQQB?"              ??QQQa,
-     sQQD^                      ?QQ6\
-    yWW'                          4QQg
-  ,QQD          .aaaaaaaa          ^4Q6
- ,mQP        _wWQW?????YWWQa,        4Qm
- jQ@        wWW?'        ^4QQc       ^$QL
-,QQ'       jWW'            )QW\       ]QQ
-|QQ       ,QW'              ]QQ       ^QQ|
-|QQ       |QQ               ]QQ        QQ|
-|QQ        4Qg              ]QQ       .QQ|
-'QQ6       '$WQac.         _QQ(       jQQ
- ]QQw        "?QWQQf      _mQP       ,QQ(
-  4QQga                  wQQP       ,mQ?
-   4QQQga,            saQWP'       jQQf
-    ?QQQQQQwaaaaaaaayWWW?'       _mQ@'
-      ?WQQQP?9VWUV???^        _amQP^
-        "4QQQaa,          ,awQQQ?^
-           "?VQQQQQQQQQQQQQQP?'
-EOF
-        ;;
-
         "openSUSE Tumbleweed"* | "openSUSE_Tumbleweed"*)
             set_colors 2 7
             read -rd '' ascii_data <<'EOF'
-${c2}         JJJJJJJJ
-      JJJJJJJJJJJJJJ
-    JJJJJJ   =JJJJJJJ
-   JJJJ      =JJJ JJJJ
-   JJJ       =JJJ   JJJ
-  JJJJ       =JJJ   JJJ
-  JJJJJJJJJJJJJJJ   JJJJ
-   JJJJJJJJJJJJJJ   JJJJ
-   JJJJ             JJJJ
-    JJJJJ=          JJJJ
-      JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ=
-        =JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-                    JJJJ         =JJJJJJ
-                    JJJJ            =JJJJ
-                    JJJJ   JJJJJJJJJJJJJJ
-                    JJJJ   JJJJJJJJJJJJJJJ
-                    JJJJ   JJJJ       JJJJ
-                     JJJ   JJJJ       JJJ
-                     JJJJJ JJJJ      JJJJ
-                      =JJJJJJJJ   JJJJJJ
-                        JJJJJJJJJJJJJJ
-                           JJJJJJJ=
+${c2}                                     ......
+     .,cdxxxoc,.               .:kKMMMNWMMMNk:.
+    cKMMN0OOOKWMMXo. A        ;0MWk:'      ':OMMk.
+  ;WMK;'       'lKMMNM,     :NMK'             'OMW;
+ cMW;             WMMMN   ,XMK'                 oMM.
+.MMc             ''^*~l. xMN:                    KM0
+'MM.                   .NMO                      oMM
+.MM,                 .kMMl                       xMN
+ KM0               .kMM0' .dl>~,.               .WMd
+ 'XM0.           ,OMMK'    OMMM7'              .XMK
+   *WMO:.    .;xNMMk'       NNNMKl.          .xWMx
+     ^ONMMNXMMMKx;          V  'xNMWKkxllox0NMWk'
+         '''''                    ':dOOXXKOxl'
 EOF
         ;;
 

@@ -28,13 +28,14 @@
 }
 
 body {
-  min-width: 480px;
+  min-width: 560px;
   background-color: var(--mantle);
   color: var(--text);
   font-family: 'CozetteVector', "Terminess Nerd Font", "Terminus", monospace;
+  font-size: 13px;
 }
 
-div#terminal span {
+.xterm-rows {
   font-smooth: never;
   -webkit-font-smoothing: none;
 }
@@ -62,11 +63,13 @@ a{
 }
 
 .meow{
+  display: flex;
+  justify-content:space-between;
   padding: 10px;
 }
 @font-face {
   font-family: 'CozetteVector';
-  src: url('/CozetteVector.woff2') format('woff2');
+  src: url('./CozetteVector.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -74,13 +77,13 @@ a{
 
 @font-face {
   font-family: 'CozetteVector';
-  src: url('/CozetteVectorBold.woff2') format('woff2');
+  src: url('./CozetteVectorBold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
-/*scale to 2x when screen bigger than 960x800 */
+/*scale to 2x when screen bigger than 960x1050 */
 @media (min-width: 960px) and (min-height: 1050px) {
   body {
     transform: scale(2);
