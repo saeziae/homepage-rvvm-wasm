@@ -9,3 +9,4 @@ cp web/node_modules/@xterm/xterm/css/xterm.css public/
 cp web/node_modules/@xterm/xterm/lib/xterm.js public/
 cp web/node_modules/xterm-pty/index.mjs public/xterm-pty.mjs
 cp build/rvvm/* public/
+sed -i "s|</body>|<p>build $(git rev-parse --short HEAD)</p></body>|" public/index.html

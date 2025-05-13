@@ -28,6 +28,7 @@
 }
 
 body {
+  min-width: 480px;
   background-color: var(--mantle);
   color: var(--text);
   font-family: 'CozetteVector', "Terminess Nerd Font", "Terminus", monospace;
