@@ -1,0 +1,69 @@
+name:
+  short_name: "estela"
+  first_name: "estela ad astra"
+  last_name: null
+aka: # id used
+  - "saeziae"
+  - "estel·la"
+blåhaj_count: 3
+homepage:
+  - "https://estela.moe"
+  - "https://estela.cat"
+human_language: # human language
+  - "wuu"
+  - "en"
+  - "ca"
+  - "es"
+  - "zh"
+  - "eo"
+generation: "z"
+gender: "non-binary"
+pronouns:
+  en:
+    - "they"
+    - "she"
+  ca:
+    - "elli"
+    - "ella"
+  es:
+    - "elle"
+    - "ella"
+  eo:
+    - "ri"
+  zh: # not a single language. written.
+    - "\u6e20"
+    - "\u4f0a"
+  fr:
+    - "iel"
+    - "elle"
+reference:
+  pattern: "((this|that) (one|person|cat|being|meow))|you|they|she"
+  avoid:
+    - "masculine pronouns"
+    - "directly referred with gendered nouns, including 'girl','woman'"
+    - "title" # important to poor bri'ish folk
+os:
+  - "linux":
+      - "arch"
+      - "void"
+      - "debian"
+  - "bsd"
+editor:
+  - "neovim"
+  - "vim"
+  - "vscode"
+language:
+  - "basic" # forgotten
+  - "c"
+  - "python"
+  - "go"
+  - "php"
+  - "javascript"
+  # - "rust" # uwu not yet
+artwork_creator:
+  - "gimp"
+  - "inkscape"
+  - "krita"
+  - "kdenlive"
+  - "ffmpeg"
+  # - "blender" # uwu not yet
