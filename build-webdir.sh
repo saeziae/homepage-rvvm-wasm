@@ -5,7 +5,7 @@ fi
 HASH=$(git rev-parse --short HEAD)
 mkdir public
 cp -r web/8831 public/
-cp web/*.{html,woff2,svg,png} public/
+cp web/*.{html,woff2,svg,png,ogg} public/
 cp web/*.{js,css} public/
 cp web/node_modules/@xterm/xterm/css/xterm.css public/
 cp web/node_modules/@xterm/xterm/lib/xterm.js public/
