@@ -22,11 +22,6 @@ if (navigator.language.startsWith("zh")) {
   term.write("Loading... Sit back and relax.\n");
 }
 
-const nya = new Audio('./nya.ogg')
-
-function bell() {
-    nya.play();
-}
 term.onBell(bell);
 const { master, slave } = openpty();
 
