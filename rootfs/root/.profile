@@ -10,7 +10,7 @@ printf "\e[38;2;91;206;250m    ______     __       __     \e[0m\n\
 \e[95m│\e[0m        \"Your life isn't over, so don't give up!\"         \e[95m│\e[0m\n\
 \e[95m│\e[0m                   Someone's voice rang                   \e[95m│\e[0m\n\
 \e[95m└──────────────────────────────────────────────────────────┘\e[0m\n"
-echo "meow ah! $USER :3"
+echo -e "meow ah! $USER :3\a"
 echo "welcome to the inner world of estela (?)"
 echo "please enjoy exploring"
 echo "for noobs: try 'welp' command"
