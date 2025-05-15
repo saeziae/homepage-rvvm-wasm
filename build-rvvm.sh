@@ -15,10 +15,10 @@ USE_X11=0 \
 USE_FB=0 \
 LDFLAGS="\
   -sFORCE_FILESYSTEM -sPROXY_TO_PTHREAD\
+  -sLZ4\
   --js-library=$hd/web/node_modules/xterm-pty/emscripten-pty.js \
   --preload-file $hd/build/buildroot/images/fw_jump.bin@fw_jump.bin \
-  --preload-file $hd/build/buildroot/images/Image@Image \
-  --preload-file $hd/build/buildroot/images/rootfs.ext2@rootfs.img"
+  --preload-file $hd/build/buildroot/images/Image@Image"
 
 cd $hd
 if [ -d "build/rvvm" ]; then

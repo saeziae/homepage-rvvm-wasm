@@ -17,7 +17,7 @@ var term = new Terminal({
 term.open(document.getElementById("terminal"));
 document.getElementById("mrrp").remove();
 if (navigator.language.startsWith("zh")) {
-  term.write("请坐和放宽，好东西就要来了。\n");
+  term.write("\u8BF7\u5750\u548C\u653E\u5BBD\uFF0C\u597D\u4E1C\u897F\u5C31\u8981\u6765\u4E86\u3002\n");
 } else {
   term.write("Loading... Sit back and relax.\n");
 }
@@ -31,12 +31,11 @@ await rvvm({
     "/fw_jump.bin",
     "-k",
     "/Image",
-    "-i",
-    "/rootfs.img",
     "-m",
-    "64M",
+    "80M",
     "-nogui",
     "-nonet",
+    "-cmdline=''"
   ],
   pty: slave,
 });
