@@ -15,4 +15,4 @@ echo "welcome to the inner world of estela (?)"
 echo "please enjoy exploring"
 echo "for noobs: try 'welp' command"
 alias cat='printf "\a"; cat' #now it's cat
-PS1="\e[0;36m\u@\h\e[0m \w \e[93m>\e[37m>\e[35m>\e[30m>\e[0m "
+PS1="\[\e[0;36m\]\u@\h\[\e[0m\] \w \[\e[93m\]>\[\e[37m\]>\[\e[35m\]>\[\e[30m\]>\[\e[0m\] "
