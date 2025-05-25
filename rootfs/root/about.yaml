@@ -2,6 +2,7 @@ name:
   short_name: "estela"
   first_name: "estela ad astra"
   last_name: null
+  ref: https://estela.moe/name
 aka: # id used
   - "saeziae"
   - "estel·la"
@@ -30,17 +31,15 @@ pronouns:
     - "ella"
   eo:
     - "ri"
-  zh: # not a single language. written.
-    - "\u6e20"
-    - "\u4f0a"
-  fr:
-    - "iel"
-    - "elle"
+  zh:
+    - my name
+    - "\u5979, \u6e20 and others, never \u4ed6"
+  ref: https://estela.moe/pronouns
 reference:
-  pattern: "((this|that) (one|person|cat|being|meow))|you|they|she"
+  pattern: "((this|that) (one|person|cat|being|meow))|estela|you|they|she"
   avoid:
     - "masculine pronouns"
-    - "directly referred with gendered nouns, including 'girl','woman'"
+    - "gendered direct reference, like 'this girl'"
     - "title" # important to poor bri'ish folk
 os:
   - "linux":
