@@ -91,13 +91,3 @@ a{
   font-style: normal;
   font-display: swap;
 }
-
-/*scale to 2x when screen bigger than 960x1050 */
-@media (min-width: 960px) and (min-height: 1050px) {
-  body {
-    transform: scale(2);
-    transform-origin: 0 0;
-    overflow: hidden;
-    width: 50%;
-  }
-}
