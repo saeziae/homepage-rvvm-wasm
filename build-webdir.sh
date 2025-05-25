@@ -31,5 +31,6 @@ sed -i '/sourceMappingURL/d' public/*.{js,mjs}
     Cross-Origin-Embedder-Policy: require-corp
     Cross-Origin-Opener-Policy: same-origin
 MEOW
-    zip -r public.zip public/
+[ -f public.zip ] && rm public.zip
+(cd public && zip -0r ../public.zip .)
 }
