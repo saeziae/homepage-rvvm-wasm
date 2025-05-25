@@ -14,5 +14,13 @@ echo -e "meow\a ah! $USER :3"
 echo "welcome to the inner world of estela (?)"
 echo "please enjoy exploring"
 echo "for noobs: try 'welp' command"
-alias cat='printf "\a"; cat' #now it's cat
-PS1="\[\e[0;36m\]\u@\h\[\e[0m\] \w \[\e[93m\]>\[\e[37m\]>\[\e[35m\]>\[\e[30m\]>\[\e[0m\] "
+# Get username and hostname
+HOST=$(cat /etc/hostname)
+DIF=$((${#HOST} - ${#USER}))
+[ $DIF -gt 0 ] && PAD1=$(printf '%*s' $DIF) || PAD1=''
+DIF=$((${#USER} - ${#HOST}))
+[ $DIF -gt 0 ] && PAD2=$(printf '%*s' $DIF) || PAD2=''
+ PS1="\[\e[42m\] \[\e[40;37m\] $USER $PAD1\[\e[0m\]\n"
+PS1+="\[\e[42m\] \[\e[40;37m\] $HOST $PAD2\[\e[0m\]\n"
+PS1+="\w \[\e[93m\]>\[\e[37m\]>\[\e[35m\]>\[\e[30m\]>\[\e[0m\] "
+alias cat='printf "\a" >&2; cat' #now it's cat
