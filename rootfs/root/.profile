@@ -21,6 +21,6 @@ DIF=$((${#HOST} - ${#USER}))
 DIF=$((${#USER} - ${#HOST}))
 [ $DIF -gt 0 ] && PAD2=$(printf '%*s' $DIF) || PAD2=''
  PS1="\[\e[42m\] \[\e[40;37m\] $USER $PAD1\[\e[0m\]\n"
-PS1+="\[\e[42m\] \[\e[40;37m\] $HOST $PAD2\[\e[0m\]\n"
-PS1+="\w \[\e[93m\]>\[\e[37m\]>\[\e[35m\]>\[\e[30m\]>\[\e[0m\] "
+PS1+="\[\e[42m\] \[\e[40;37m\] $HOST $PAD2\[\e[0m\] "
+PS1+="\w \[\e[93m\]❯\[\e[37m\]❯\[\e[35m\]❯\[\e[30m\]❯\[\e[0m\] "
 alias cat='printf "\a" >&2; cat' #now it's cat
