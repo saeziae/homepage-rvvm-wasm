@@ -51,7 +51,7 @@ window.addEventListener('load', async function () {
     term.write("Loading... Sit back and relax.\n");
   }
 
-  term.onBell(() => console.log('Bell'));
+  term.onBell(bell);
   const { master, slave } = openpty();
   const wla = new window.WebLinksAddon.WebLinksAddon();
   term.loadAddon(master);
