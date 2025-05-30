@@ -50,7 +50,7 @@ body {
   -webkit-font-smoothing: none;
 }
 
-a{
+a {
   color: var(--pink);
 }
 
@@ -59,20 +59,20 @@ a{
   line-height: 0;
 }
 
-.awawa img{
+.awawa img {
   padding: 0;
   margin: 0;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
 }
 
-.meow{
+.meow {
   width: 352px;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
-.meow p{
+.meow p {
   margin: 0;
 }
 
@@ -90,4 +90,20 @@ a{
   font-weight: bold;
   font-style: normal;
   font-display: swap;
+}
+
+kbd {
+  background-color: var(--surface0);
+  color: var(--text);
+  border-radius: 1px;
+  border: 1px solid var(--surface1);
+  box-shadow: 0 1px 0 1px var(--surface1);
+  font-family: unset;
+  font-size: 0.75em;
+  line-height: 1;
+  display: inline-block;
+  text-align: center;
+  padding: 2px 5px;
+  position: relative;
+  top: -1px;
 }
