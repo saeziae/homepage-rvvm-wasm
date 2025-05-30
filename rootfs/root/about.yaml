@@ -12,11 +12,11 @@ homepage:
   - "https://estela.cat"
 human_language: # human language
   - "wuu"
-  - "en"
-  - "ca"
-  - "es"
-  - "zh"
-  - "eo"
+  - "eng"
+  - "cat"
+  - "esp"
+  - "cmn"
+  - "epo" # >< need practice
 generation: "z"
 gender: "non-binary"
 pronouns:
@@ -37,10 +37,6 @@ pronouns:
   ref: https://estela.moe/pronouns
 reference:
   pattern: "((this|that) (one|person|cat|being|meow))|estela|you|they|she"
-  avoid:
-    - "masculine pronouns"
-    - "gendered direct reference, like 'this girl'"
-    - "title" # important to poor bri'ish folk
 os:
   - "linux":
       - "arch"
