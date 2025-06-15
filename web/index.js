@@ -4,12 +4,6 @@ import { openpty } from "./xterm-pty.mjs";
 import rvvm from "./rvvm_wasm32.mjs";
 
 window.addEventListener('load', async function () {
-  if (navigator.userAgent.includes("Duck") || navigator.userAgent.includes("Focus")) {
-    const p = document.createElement("p");
-    p.innerText = "It is possible that on your browser the virtual machine will not load. Try Firefox!";
-    p.style.width="280px";
-    document.body.prepend(p);
-  }
   const term = new Terminal({
     cols: 80,
     rows: 30,
