@@ -1,12 +1,9 @@
 email: 
   - i at estela dot moe
-  - work at estela dot moe # for adopting this one
+  - work at estela dot moe #for job opportunity
 shitgitting:
   - "https://github.com/saeziae"
   - "https://git.gay/saeziae"
-shitposting: # fedi
-  - "@sz@catcatnya.com"
-  - "@mzk@nightcord.de"
-p2p_infodumping: # matrix
-  - "@mzk:nightcord.de"
-  - "@saeziae:mozilla.org"
+  - "https://codeberg.org/saeziae"
+shitposting: "@sz@catcatnya.com"
+p2p_infodumping: "@estela:estela.moe"

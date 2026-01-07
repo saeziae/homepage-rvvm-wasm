@@ -1,64 +1,56 @@
 name:
-  short_name: "estela"
-  first_name: "estela ad astra"
-  last_name: null
-  ref: https://estela.moe/name
-aka: # id used
-  - "saeziae"
-  - "estel·la"
+  short_name: estela
+  first_name: estela ad astra
+  last_name: [null]
+  aka:
+    - saeziae
+    - estel·la
 blåhaj_count: 3
+eepy: yes
 homepage:
-  - "https://estela.moe"
-  - "https://estela.cat"
+  - https://estela.moe
+  - https://estela.cat
+  - gemini://estela.moe
 human_language: # human language
-  - "wuu"
-  - "eng"
-  - "cat"
-  - "esp"
-  - "cmn"
-  - "epo" # >< need practice
+  - wuu
+  - eng
+  - cat
+  - esp
+  - cmn
+  - epo # >< need practice
 generation: "z"
-gender: "non-binary"
+gender: non-binary
 pronouns:
-  en:
-    - "they"
-    - "she"
-  ca:
-    - "elli"
-    - "ella"
-  es:
-    - "elle"
-    - "ella"
-  eo:
-    - "ri"
-  zh:
-    - my name
-    - "\u5979, \u6e20 and others, never \u4ed6"
-  ref: https://estela.moe/pronouns
-reference:
-  pattern: "((this|that) (one|person|cat|being|meow))|estela|you|they|she"
+  en: they/she
+  ca: elli/ella
+  es: elle/ella
+  eo: ri
 os:
-  - "linux":
-      - "arch"
-      - "void"
-      - "debian"
-  - "bsd"
+  - linux:
+      - arch
+      - void
+      - debian
+  - freebsd
 editor:
-  - "neovim"
-  - "vim"
-  - "vscode"
+  - neovim
+  - vim
+  - vscode
 language:
-  - "basic" # forgotten
-  - "c"
-  - "python"
-  - "go"
-  - "php"
-  - "javascript"
-  # - "rust" # uwu not yet
+  - c
+  - python
+  - go
+  - php
+  - javascript
+  # - rust # uwu not yet
 artwork_creator:
-  - "gimp"
-  - "inkscape"
-  - "krita"
-  - "kdenlive"
-  - "ffmpeg"
-  # - "blender" # uwu not yet
+  - gimp
+  - inkscape
+  - krita
+  - kdenlive
+  - ffmpeg
+  # - blender # uwu not yet
+interests:
+  - touching computers
+  - linguistics
+  - photos, sometimes with film roll
+  - pixel art, typography, palette, retro devices, risc-v, typewriter, fountain pen, anime, manga, rubik's cube, vocaloid, tecno, paper books, amateur radio, rhythm games, minecraft, celeste, lolita fashion, heraldry and vexillology

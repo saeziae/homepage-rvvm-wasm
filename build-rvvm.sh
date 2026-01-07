@@ -1,7 +1,6 @@
 #/bin/bash
 hd=$(pwd)
 cd RVVM
-git apply ../RVVM.diff
 export PATH=$PATH:/usr/lib/emscripten/
 make CC=emcc clean
 make \
@@ -14,7 +13,8 @@ USE_SDL=0 \
 USE_X11=0 \
 USE_FB=0 \
 LDFLAGS="\
-  -sFORCE_FILESYSTEM -sPROXY_TO_PTHREAD\
+  -sTOTAL_MEMORY=96MB\
+  -sALLOW_MEMORY_GROWTH=0\
   -sLZ4\
   --js-library=$hd/web/node_modules/xterm-pty/emscripten-pty.js \
   --preload-file $hd/build/buildroot/images/fw_jump.bin@fw_jump.bin \

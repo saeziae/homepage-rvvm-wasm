@@ -25,12 +25,3 @@ cp web/node_modules/xterm-pty/index.mjs public/xterm-pty.mjs
 cp build/rvvm/* public/
 sed -i "s|<hash />|<p>build $HASH</p>|" public/index.html
 sed -i '/sourceMappingURL/d' public/*.{js,mjs}
-[ -z "$CFHEADERS" ] || {
-    cat > public/_headers << 'MEOW'
-/*
-    Cross-Origin-Embedder-Policy: require-corp
-    Cross-Origin-Opener-Policy: same-origin
-MEOW
-[ -f public.zip ] && rm public.zip
-(cd public && zip -0r ../public.zip .)
-}

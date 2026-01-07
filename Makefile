@@ -17,4 +17,4 @@ clean-buildroot:
 	rm -rf target
 	find . -name ".stamp_target_installed" -delete
 	rm -f ./build/host-gcc-final-*/.stamp_host_installed
-	popd
+	cd ../../

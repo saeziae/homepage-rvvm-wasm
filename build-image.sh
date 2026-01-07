@@ -6,4 +6,4 @@ if [ ! -d "build/buildroot" ]; then
 fi
 cp buildroot.config build/buildroot/.config
 cd build/buildroot
-HOSTCC=gcc-13 HOSTCXX=g++-13 make -C ../../buildroot O=$(pwd) -j$(expr $(nproc) - 1)
+HOSTCC=gcc HOSTCXX=g++ make -C ../../buildroot O=$(pwd) -j$(expr $(nproc) - 1)
